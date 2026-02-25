@@ -1,0 +1,103 @@
+[
+    {
+        "id": "shecan",
+        "name": "Shecan (شکن)",
+        "primary": "178.22.122.100",
+        "secondary": "185.51.200.2",
+        "tags": [
+            "Gaming",
+            "Web",
+            "Download"
+        ]
+    },
+    {
+        "id": "radar",
+        "name": "Radar Game",
+        "primary": "10.202.10.10",
+        "secondary": "10.202.10.11",
+        "tags": [
+            "Gaming"
+        ]
+    },
+    {
+        "id": "electro",
+        "name": "Electro",
+        "primary": "78.157.42.100",
+        "secondary": "78.157.42.101",
+        "tags": [
+            "Gaming",
+            "Download"
+        ]
+    },
+    {
+        "id": "cloudflare",
+        "name": "Cloudflare",
+        "primary": "1.1.1.1",
+        "secondary": "1.0.0.1",
+        "tags": [
+            "Gaming",
+            "Web",
+            "Download"
+        ]
+    },
+    {
+        "id": "google",
+        "name": "Google Public DNS",
+        "primary": "8.8.8.8",
+        "secondary": "8.8.4.4",
+        "tags": [
+            "Gaming",
+            "Web",
+            "Download"
+        ]
+    },
+    {
+        "id": "quad9",
+        "name": "Quad9",
+        "primary": "9.9.9.9",
+        "secondary": "149.112.112.112",
+        "tags": [
+            "Gaming",
+            "Web",
+            "Download"
+        ]
+    },
+    {
+        "id": "opendns",
+        "name": "OpenDNS",
+        "primary": "208.67.222.222",
+        "secondary": "208.67.220.220",
+        "tags": [
+            "Web",
+            "Download"
+        ]
+    },
+    {
+        "id": "adguard",
+        "name": "AdGuard DNS",
+        "primary": "94.140.14.14",
+        "secondary": "94.140.15.15",
+        "tags": [
+            "Web",
+            "Ad-Block"
+        ]
+    },
+    {
+        "id": "begzar",
+        "name": "Begzar (بگذر)",
+        "primary": "185.55.226.26",
+        "secondary": "185.55.225.25",
+        "tags": [
+            "Web"
+        ]
+    },
+    {
+        "id": "403_online",
+        "name": "403.online",
+        "primary": "10.202.10.202",
+        "secondary": "10.202.10.102",
+        "tags": [
+            "Web"
+        ]
+    }
+]
