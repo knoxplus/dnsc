@@ -24,40 +24,7 @@ class HomePage extends StatelessWidget {
             child: DragToMoveArea(child: SizedBox()),
           ),
           
-          // Top right actions (Minimize / Close)
-          Positioned(
-            top: 24,
-            right: 24,
-            child: Row(
-              children: [
-                InkWell(
-                  onTap: () async => await windowManager.minimize(),
-                  borderRadius: BorderRadius.circular(20),
-                  child: Container(
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.05),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: const Icon(Icons.remove_rounded, size: 20, color: Colors.white),
-                  ),
-                ),
-                const SizedBox(width: 12),
-                InkWell(
-                  onTap: () => exit(0),
-                  borderRadius: BorderRadius.circular(20),
-                  child: Container(
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      color: Colors.redAccent.withOpacity(0.15),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: const Icon(Icons.close_rounded, size: 20, color: Colors.redAccent),
-                  ),
-                ),
-              ],
-            ),
-          ),
+
           
           // Center main content
           Center(
