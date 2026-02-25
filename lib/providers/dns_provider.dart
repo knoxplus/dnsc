@@ -230,10 +230,8 @@ class DnsProvider with ChangeNotifier {
     _isLoadingExplore = true;
     notifyListeners();
     
-    // Hardcoded highly reliable list with categorized tags simulating a fetched configuration
-    await Future.delayed(const Duration(milliseconds: 600)); // Simulate slight load
-    
-    _exploreList = [
+    final prefs = await SharedPreferences.getInstance();
+    List<DnsModel> fallbackList = [
       DnsModel(id: 'shecan', name: 'Shecan (شکن)', primary: '178.22.122.100', secondary: '185.51.200.2', tags: ['Gaming', 'Web', 'Download']),
       DnsModel(id: 'radar', name: 'Radar Game', primary: '10.202.10.10', secondary: '10.202.10.11', tags: ['Gaming']),
       DnsModel(id: 'electro', name: 'Electro', primary: '78.157.42.100', secondary: '78.157.42.101', tags: ['Gaming', 'Download']),
@@ -245,6 +243,31 @@ class DnsProvider with ChangeNotifier {
       DnsModel(id: 'begzar', name: 'Begzar (بگذر)', primary: '185.55.226.26', secondary: '185.55.225.25', tags: ['Web']),
       DnsModel(id: '403_online', name: '403.online', primary: '10.202.10.202', secondary: '10.202.10.102', tags: ['Web']),
     ];
+
+    try {
+      final cacheBuster = DateTime.now().millisecondsSinceEpoch;
+      final response = await http.get(Uri.parse('https://raw.githubusercontent.com/knoxplus/dnsc/master/explore_dns.json?t=$cacheBuster')).timeout(const Duration(seconds: 5));
+      if (response.statusCode == 200) {
+        final List<dynamic> decoded = jsonDecode(response.body);
+        _exploreList = decoded.map((e) => DnsModel.fromJson(e)).toList();
+        await prefs.setString('cached_explore_dns', response.body); // Cache for offline use
+      } else {
+        throw Exception('Failed to load DNS list');
+      }
+    } catch (e) {
+      // Fallback to local cache if no internet
+      final cachedJson = prefs.getString('cached_explore_dns');
+      if (cachedJson != null) {
+        try {
+          final List<dynamic> decoded = jsonDecode(cachedJson);
+          _exploreList = decoded.map((e) => DnsModel.fromJson(e)).toList();
+        } catch (_) {
+          _exploreList = fallbackList;
+        }
+      } else {
+        _exploreList = fallbackList;
+      }
+    }
     
     _isLoadingExplore = false;
     notifyListeners();
