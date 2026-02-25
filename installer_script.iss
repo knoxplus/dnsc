@@ -23,11 +23,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: ".\build\windows\x64\runner\Release\dnschanger.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: ".\build\windows\x64\runner\Release\Flutter_windows.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: ".\build\windows\x64\runner\Release\window_manager_plugin.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: ".\build\windows\x64\runner\Release\launch_at_startup_plugin.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: ".\build\windows\x64\runner\Release\data\*"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: ".\build\windows\x64\runner\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
 Name: "{autoprograms}\DNS Changer"; Filename: "{app}\dnschanger.exe"
