@@ -41,15 +41,14 @@ class _ExplorePageState extends State<ExplorePage> {
         child: DragToMoveArea(
           child: AppBar(
             title: const Text('Explore Public DNS'),
-            actions: [
-              IconButton(
-                icon: const Icon(Icons.refresh),
-                tooltip: 'Refresh List',
-                onPressed: () => provider.fetchExploreDns(),
-              )
-            ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => provider.fetchExploreDns(),
+        backgroundColor: Theme.of(context).primaryColor,
+        tooltip: 'Refresh List',
+        child: const Icon(Icons.refresh, color: Colors.white),
       ),
       body: provider.isLoadingExplore
           ? const Center(child: CircularProgressIndicator(color: Colors.blueAccent))

@@ -46,7 +46,7 @@ void main() async {
 class DnsChangerApp extends StatelessWidget {
   const DnsChangerApp({super.key});
 
-  ThemeData _getThemeData(String themeMode) {
+  ThemeData _getThemeData(String themeMode, String lang) {
     Color primary = const Color(0xFF6318FF);
     Color scaffoldBg = const Color(0xFF0F111A);
     Color cardColor = const Color(0xFF1A1C29);
@@ -85,7 +85,7 @@ class DnsChangerApp extends StatelessWidget {
         centerTitle: true,
         foregroundColor: brightness == Brightness.dark ? Colors.white : Colors.black87,
       ),
-      fontFamily: 'Segoe UI',
+      fontFamily: lang == 'fa' ? 'Vazirmatn' : 'Segoe UI',
     );
   }
 
@@ -96,7 +96,7 @@ class DnsChangerApp extends StatelessWidget {
         return MaterialApp(
           title: 'DNS Changer',
           debugShowCheckedModeBanner: false,
-          theme: _getThemeData(settings.themeMode),
+          theme: _getThemeData(settings.themeMode, settings.language),
           home: const MainLayout(),
         );
       },

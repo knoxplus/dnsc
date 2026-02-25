@@ -40,13 +40,27 @@ class _MainLayoutState extends State<MainLayout> {
             ),
             child: Column(
               children: [
-                // Drag Area for Top Left Sidebar
+                // Window Controls & Drag Area
                 DragToMoveArea(
                   child: Container(
-                    padding: const EdgeInsets.only(top: 48, bottom: 24),
+                    padding: const EdgeInsets.only(top: 24, left: 8, right: 8, bottom: 8),
                     color: Colors.transparent, // Expand drag area
                     height: 80,
                     width: double.infinity,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        InkWell(
+                          onTap: () async => await windowManager.minimize(),
+                          child: const Icon(Icons.remove, size: 20, color: Colors.grey),
+                        ),
+                        InkWell(
+                          onTap: () async => await windowManager.close(),
+                          child: const Icon(Icons.close, size: 20, color: Colors.grey),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(height: 32),
