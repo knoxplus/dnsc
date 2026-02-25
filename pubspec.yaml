@@ -1,0 +1,27 @@
+name: dnschanger
+description: A new Flutter application to manage system DNS.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+  provider: ^6.1.1
+  shared_preferences: ^2.2.2
+  http: ^1.1.2
+  process_run: ^0.13.2
+  url_launcher: ^6.2.2
+  window_manager: ^0.5.1
+  launch_at_startup: ^0.5.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+
+flutter:
+  uses-material-design: true
