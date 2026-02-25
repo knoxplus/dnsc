@@ -96,32 +96,92 @@ class AboutPage extends StatelessWidget {
               const Divider(color: Colors.grey),
               const SizedBox(height: 20),
               
-              // About Info
-              Center(
-                child: Column(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(16),
-                      decoration: BoxDecoration(shape: BoxShape.circle, color: Theme.of(context).primaryColor.withOpacity(0.1)),
-                      child: Icon(Icons.network_check, size: 64, color: Theme.of(context).primaryColor),
+              // About Info & Sponsor
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // App Info Card
+                  Expanded(
+                    child: Container(
+                      padding: const EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).cardColor,
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: Column(
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(12),
+                            decoration: BoxDecoration(shape: BoxShape.circle, color: Theme.of(context).primaryColor.withOpacity(0.1)),
+                            child: Icon(Icons.network_check, size: 48, color: Theme.of(context).primaryColor),
+                          ),
+                          const SizedBox(height: 12),
+                          const Text('DNS Changer', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                          const SizedBox(height: 4),
+                          Text('Version 1.0.0', style: TextStyle(fontSize: 12, color: Colors.grey.shade400)),
+                          const SizedBox(height: 16),
+                          TextButton.icon(
+                            icon: const Icon(Icons.code),
+                            label: const Text('GitHub Repository'),
+                            onPressed: () async {
+                              final url = Uri.parse('https://github.com/knoxplus/dnsc');
+                              if (await canLaunchUrl(url)) {
+                                await launchUrl(url);
+                              }
+                            },
+                          )
+                        ],
+                      ),
                     ),
-                    const SizedBox(height: 16),
-                    const Text('DNS Changer', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-                    const SizedBox(height: 8),
-                    Text('Version 1.0.0', style: TextStyle(fontSize: 14, color: Colors.grey.shade400)),
-                    const SizedBox(height: 16),
-                    TextButton.icon(
-                      icon: const Icon(Icons.code),
-                      label: const Text('View on GitHub'),
-                      onPressed: () async {
-                        final url = Uri.parse('https://github.com');
-                        if (await canLaunchUrl(url)) {
-                          await launchUrl(url);
-                        }
-                      },
-                    )
-                  ],
-                ),
+                  ),
+                  const SizedBox(width: 16),
+                  
+                  // Sponsor Card
+                  Expanded(
+                    child: Container(
+                      padding: const EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).cardColor,
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(color: Colors.purpleAccent.withOpacity(0.3), width: 1),
+                      ),
+                      child: Column(
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(12),
+                            decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.purpleAccent.withOpacity(0.1)),
+                            child: const Icon(Icons.favorite_rounded, size: 48, color: Colors.purpleAccent),
+                          ),
+                          const SizedBox(height: 12),
+                          const Text('Sponsor: IO Game', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                          const SizedBox(height: 8),
+                          const Text(
+                            'بنفش ترین رسانه خبری گیمینگ ایران',
+                            textAlign: TextAlign.center,
+                            textDirection: TextDirection.rtl,
+                            style: TextStyle(fontSize: 13, color: Colors.purpleAccent),
+                          ),
+                          const SizedBox(height: 16),
+                          ElevatedButton.icon(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.purpleAccent.withOpacity(0.2),
+                              foregroundColor: Colors.purpleAccent,
+                              elevation: 0,
+                            ),
+                            icon: const Icon(Icons.language, size: 18),
+                            label: const Text('iogame.media'),
+                            onPressed: () async {
+                              final url = Uri.parse('https://iogame.media');
+                              if (await canLaunchUrl(url)) {
+                                await launchUrl(url);
+                              }
+                            },
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               )
             ],
           ),
