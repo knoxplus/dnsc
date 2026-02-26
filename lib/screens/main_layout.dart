@@ -6,6 +6,7 @@ import '../localization.dart';
 import 'home_page.dart';
 import 'explore_page.dart';
 import 'custom_dns_page.dart';
+import 'test_page.dart';
 import 'about_page.dart';
 
 class MainLayout extends StatefulWidget {

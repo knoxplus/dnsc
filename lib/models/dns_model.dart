@@ -5,6 +5,8 @@ class DnsModel {
   final String secondary;
   final bool isCustom;
   final List<String> tags;
+  int? pingMs;
+  bool isPinging;
 
   DnsModel({
     required this.id,
@@ -13,6 +15,8 @@ class DnsModel {
     required this.secondary,
     this.isCustom = false,
     this.tags = const [],
+    this.pingMs,
+    this.isPinging = false,
   });
 
   Map<String, dynamic> toJson() {

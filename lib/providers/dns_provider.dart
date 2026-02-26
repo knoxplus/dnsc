@@ -169,10 +169,21 @@ class DnsProvider with ChangeNotifier {
 
   Future<void> checkIndividualPing(DnsModel model) async {
     _individualPings[model.id] = 'Pinging...';
+    model.isPinging = true;
+    model.pingMs = null;
     notifyListeners();
 
-    final result = await _pingService.pingAddress(model.primary);
-    _individualPings[model.id] = result != null ? '$result ms' : 'Failed';
+    final result = await _pingService.pingAddress(model.primary); // Returns int?
+    
+    if (result != null) {
+      _individualPings[model.id] = '$result ms';
+      model.pingMs = result;
+    } else {
+      _individualPings[model.id] = 'Failed';
+      model.pingMs = -1;
+    }
+    
+    model.isPinging = false;
     notifyListeners();
   }
 
@@ -181,7 +192,7 @@ class DnsProvider with ChangeNotifier {
     if (result == 'N/A' || result == 'Pinging...') return Colors.grey.shade400;
     if (result == 'Failed') return Colors.redAccent;
     try {
-      final value = int.parse(result.replaceAll(' ms', ''));
+      final value = int.parse(result.toString().replaceAll(' ms', ''));
       if (value < 90) return Colors.greenAccent;
       if (value <= 160) return Colors.orangeAccent;
       return Colors.redAccent;
@@ -271,5 +282,11 @@ class DnsProvider with ChangeNotifier {
     
     _isLoadingExplore = false;
     notifyListeners();
+  }
+
+  Future<void> pingAllExploreDns(List<DnsModel> targets) async {
+    // Fire all pings concurrently for maximum speed
+    final futures = targets.map((model) => checkIndividualPing(model)).toList();
+    await Future.wait(futures);
   }
 }

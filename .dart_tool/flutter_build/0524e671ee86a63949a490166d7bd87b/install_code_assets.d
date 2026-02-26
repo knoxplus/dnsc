@@ -1,0 +1,1 @@
+ H:\\Hossein\ javan\\project\\dnschanger\\.dart_tool\\flutter_build\\0524e671ee86a63949a490166d7bd87b\\native_assets.json: 

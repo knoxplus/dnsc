@@ -5,6 +5,7 @@ import 'package:window_manager/window_manager.dart';
 import 'package:launch_at_startup/launch_at_startup.dart';
 import 'providers/dns_provider.dart';
 import 'providers/settings_provider.dart';
+import 'providers/platform_test_provider.dart';
 import 'screens/main_layout.dart';
 
 void main() async {
@@ -37,6 +38,7 @@ void main() async {
       providers: [
         ChangeNotifierProvider(create: (_) => DnsProvider()),
         ChangeNotifierProvider(create: (_) => SettingsProvider()),
+        ChangeNotifierProvider(create: (_) => PlatformTestProvider()),
       ],
       child: const DnsChangerApp(),
     ),

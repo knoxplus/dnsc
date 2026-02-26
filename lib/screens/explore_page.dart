@@ -13,6 +13,7 @@ class ExplorePage extends StatefulWidget {
 class _ExplorePageState extends State<ExplorePage> {
   String _searchQuery = '';
   String _selectedTag = 'All';
+  bool _sortByPing = false;
   final List<String> _availableTags = ['All', 'Gaming', 'Web', 'Download', 'Ad-Block'];
 
   @override
@@ -34,6 +35,15 @@ class _ExplorePageState extends State<ExplorePage> {
       final matchesTag = _selectedTag == 'All' || dns.tags.contains(_selectedTag);
       return matchesSearch && matchesTag;
     }).toList();
+
+    // Sort Logic
+    if (_sortByPing) {
+      filteredList.sort((a, b) {
+        int pingA = (a.pingMs == null || a.pingMs == -1) ? 999999 : a.pingMs!;
+        int pingB = (b.pingMs == null || b.pingMs == -1) ? 999999 : b.pingMs!;
+        return pingA.compareTo(pingB);
+      });
+    }
 
     return Scaffold(
       appBar: PreferredSize(
@@ -103,6 +113,40 @@ class _ExplorePageState extends State<ExplorePage> {
                   ),
                 ),
                 
+                // Ping Controls Action Row
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 4.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Checkbox(
+                            value: _sortByPing,
+                            activeColor: const Color(0xFF6318FF),
+                            onChanged: (val) {
+                              setState(() => _sortByPing = val ?? false);
+                            },
+                          ),
+                          const Text('Sort by Best Ping', style: TextStyle(color: Colors.white70)),
+                        ],
+                      ),
+                      ElevatedButton.icon(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFF6318FF).withOpacity(0.8),
+                          foregroundColor: Colors.white,
+                          elevation: 0,
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                        ),
+                        // We safely ping using the active filtered set, skipping hidden ones
+                        onPressed: () => provider.pingAllExploreDns(filteredList),
+                        icon: const Icon(Icons.rocket_launch_rounded, size: 18),
+                        label: const Text('Ping All'),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 8),
                 // DNS List
                 Expanded(
                   child: filteredList.isEmpty

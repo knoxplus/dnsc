@@ -1,0 +1,17 @@
+H:/Hossein javan/project/dnschanger/build/windows/x64/runner/Debug/data/icudtl.dat
+H:/Hossein javan/project/dnschanger/build/windows/x64/runner/Debug/flutter_windows.dll
+H:/Hossein javan/project/dnschanger/build/windows/x64/runner/Debug/screen_retriever_windows_plugin.dll
+H:/Hossein javan/project/dnschanger/build/windows/x64/runner/Debug/url_launcher_windows_plugin.dll
+H:/Hossein javan/project/dnschanger/build/windows/x64/runner/Debug/window_manager_plugin.dll
+H:/Hossein javan/project/dnschanger/build/windows/x64/runner/Debug/data/flutter_assets/AssetManifest.bin
+H:/Hossein javan/project/dnschanger/build/windows/x64/runner/Debug/data/flutter_assets/assets/fonts/Vazirmatn-Bold.ttf
+H:/Hossein javan/project/dnschanger/build/windows/x64/runner/Debug/data/flutter_assets/assets/fonts/Vazirmatn-Medium.ttf
+H:/Hossein javan/project/dnschanger/build/windows/x64/runner/Debug/data/flutter_assets/assets/fonts/Vazirmatn-Regular.ttf
+H:/Hossein javan/project/dnschanger/build/windows/x64/runner/Debug/data/flutter_assets/FontManifest.json
+H:/Hossein javan/project/dnschanger/build/windows/x64/runner/Debug/data/flutter_assets/fonts/MaterialIcons-Regular.otf
+H:/Hossein javan/project/dnschanger/build/windows/x64/runner/Debug/data/flutter_assets/kernel_blob.bin
+H:/Hossein javan/project/dnschanger/build/windows/x64/runner/Debug/data/flutter_assets/NativeAssetsManifest.json
+H:/Hossein javan/project/dnschanger/build/windows/x64/runner/Debug/data/flutter_assets/NOTICES.Z
+H:/Hossein javan/project/dnschanger/build/windows/x64/runner/Debug/data/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf
+H:/Hossein javan/project/dnschanger/build/windows/x64/runner/Debug/data/flutter_assets/shaders/ink_sparkle.frag
+H:/Hossein javan/project/dnschanger/build/windows/x64/runner/Debug/data/flutter_assets/shaders/stretch_effect.frag

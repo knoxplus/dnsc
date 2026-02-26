@@ -43,6 +43,7 @@ class AppLocalization {
       'theme_green': 'Green Theme',
       'launch_startup': 'Run at Startup',
       'language': 'Language',
+      'test': 'Test',
     },
     'fa': {
       'dns': 'دی‌ان‌اس',
@@ -87,6 +88,7 @@ class AppLocalization {
       'theme_green': 'تم سبز',
       'launch_startup': 'اجرا هنگام بالا آمدن ویندوز',
       'language': 'زبان برنامه',
+      'test': 'تست',
     },
     'zh': {
       'dns': 'DNS',
@@ -131,6 +133,7 @@ class AppLocalization {
       'theme_green': '绿色主题',
       'launch_startup': '开机时启动',
       'language': '语言',
+      'test': '测试',
     },
     'es': {
       'dns': 'DNS',
@@ -175,6 +178,7 @@ class AppLocalization {
       'theme_green': 'Tema verde',
       'launch_startup': 'Ejecutar al inicio',
       'language': 'Idioma',
+      'test': 'Prueba',
     },
     'ru': {
       'dns': 'DNS',
@@ -219,6 +223,7 @@ class AppLocalization {
       'theme_green': 'Зеленая тема',
       'launch_startup': 'Запуск при загрузке',
       'language': 'Язык',
+      'test': 'Тест',
     }
   };
 
