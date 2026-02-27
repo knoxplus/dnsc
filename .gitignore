@@ -1,2 +1,3 @@
 build/
 .dart_tool/
+installer_script.iss
