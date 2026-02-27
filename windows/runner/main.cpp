@@ -7,6 +7,25 @@
 
 int APIENTRY wWinMain(_In_ HINSTANCE instance, _In_opt_ HINSTANCE prev,
                       _In_ wchar_t *command_line, _In_ int show_command) {
+  // --- SINGLE INSTANCE MUTEX LOCK ---
+  HANDLE hMutex = ::CreateMutex(nullptr, FALSE, L"Global\\DNSChangerAppMutex_KnoxPlus");
+  if (::GetLastError() == ERROR_ALREADY_EXISTS) {
+    // If the app is already running, find the active window and bring it forwards.
+    HWND existingApp = ::FindWindow(L"FLUTTER_RUNNER_WIN32_WINDOW", L"dnschanger");
+    if (existingApp) {
+      if (::IsIconic(existingApp)) {
+        ::ShowWindow(existingApp, SW_RESTORE);
+      }
+      ::SetForegroundWindow(existingApp);
+    }
+    // Prevent the second instance from continuing
+    if (hMutex) {
+        ::CloseHandle(hMutex);
+    }
+    return EXIT_SUCCESS;
+  }
+  // ----------------------------------
+
   // Attach to console when present (e.g., 'flutter run') or create a
   // new console when running with a debugger.
   if (!::AttachConsole(ATTACH_PARENT_PROCESS) && ::IsDebuggerPresent()) {

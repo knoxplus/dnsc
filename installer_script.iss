@@ -1,11 +1,11 @@
 [Setup]
 AppName=DNS Changer
-AppVersion=1.1.0
+AppVersion=1.2.0
 AppPublisher=KnoxPlus
 DefaultDirName={autopf}\DNS Changer
 DefaultGroupName=DNS Changer
 OutputDir=.\
-OutputBaseFilename=DNSChanger_Setup_v1.1.0
+OutputBaseFilename=DNSChanger_Setup_v1.2.0
 Compression=lzma2
 SolidCompression=yes
 ArchitecturesInstallIn64BitMode=x64
@@ -24,4 +24,4 @@ Name: "{autodesktop}\DNS Changer"; Filename: "{app}\dnschanger.exe"; Tasks: desk
 Name: "desktopicon"; Description: "Create a &desktop shortcut"; GroupDescription: "Additional icons:"
 
 [Run]
-Filename: "{app}\dnschanger.exe"; Description: "Launch DNS Changer"; Flags: nowait postinstall skipifsilent
+Filename: "{app}\dnschanger.exe"; Description: "Launch DNS Changer"; Flags: nowait postinstall skipifsilent runascurrentuser
